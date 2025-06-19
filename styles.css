@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #f5f6fa;
+    min-height: 100vh;
+    padding: 32px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(30, 34, 40, 0.04);
+    padding: 32px 32px 24px 32px;
+    border: 1px solid #e5e7eb;
+}
+
+h1 {
+    text-align: left;
+    color: #222;
+    margin-bottom: 8px;
+    font-size: 1.7em;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.description {
+    text-align: left;
+    color: #6b7280;
+    margin-bottom: 28px;
+    font-size: 1em;
+}
+
+/* Двухколоночная компоновка */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.left-column, .right-column {
+    min-width: 0;
+}
+
+.table-wrapper {
+    margin-bottom: 18px;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+}
+
+#excelTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    font-size: 0.97em;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#excelTable th, #excelTable td {
+    border: none;
+}
+
+#excelTable th {
+    background: #f5f6fa;
+    color: #222;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1em;
+    border-bottom: 1.5px solid #e5e7eb;
+    letter-spacing: 0.01em;
+}
+
+#excelTable th:not(:last-child), #excelTable td:not(:last-child) {
+    border-right: 1.5px solid #e5e7eb;
+}
+
+#excelTable td {
+    padding: 0;
+    border-bottom: 1px solid #e5e7eb;
+    background: #fff;
+}
+
+#excelTable tr:last-child td {
+    border-bottom: none;
+}
+
+.cell-input {
+    width: 100%;
+    height: 36px;
+    border: none;
+    padding: 0 8px;
+    font-size: 1em;
+    text-align: left;
+    background: #fff;
+    transition: background 0.2s;
+    font-family: inherit;
+    color: #222;
+    border-radius: 0;
+}
+
+.cell-input:focus {
+    outline: 2px solid #2563eb;
+    background: #f0f4ff;
+    z-index: 1;
+}
+
+.cell-input:hover {
+    background: #f5f6fa;
+}
+
+.cell-input::placeholder {
+    color: #bdbdbd;
+    font-style: italic;
+}
+
+/* Стили для строк таблицы */
+#excelTable tbody tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+#excelTable tfoot td {
+    padding: 8px 8px 8px 0;
+    background: #fafbfc;
+    border-top: 1.5px solid #e5e7eb;
+}
+
+.sum-display {
+    padding: 0;
+    background: none;
+    border: none;
+    text-align: left;
+    font-weight: 500;
+    color: #2563eb;
+    font-size: 0.98em;
+    margin-left: 2px;
+}
+
+.sum-display.highlight {
+    color: #059669;
+    background: none;
+    transform: none;
+}
+
+.button-container {
+    text-align: left;
+    margin-bottom: 18px;
+    margin-top: 8px;
+}
+
+.calculate-btn, .clear-btn {
+    padding: 8px 18px;
+    margin: 0 8px 0 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    background: #f5f6fa;
+    color: #222;
+    transition: background 0.2s, border 0.2s, color 0.2s;
+    box-shadow: none;
+    letter-spacing: 0.01em;
+}
+
+.calculate-btn {
+    border: 1.5px solid #22c55e;
+    background: #22c55e;
+    color: #fff;
+    transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.calculate-btn:hover {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #fff;
+}
+
+.clear-btn:hover {
+    background: #f3eaea;
+    border-color: #e57373;
+    color: #c62828;
+}
+
+.summary-text {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px 20px 20px 20px;
+    border: 1px solid #e5e7eb;
+    height: fit-content;
+    box-shadow: none;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid #e5e7eb;
+}
+
+.summary-header h3 {
+    color: #222;
+    font-size: 1.08em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.copy-btn {
+    background: #f5f6fa;
+    color: #2563eb;
+    border: 1.5px solid #e5e7eb;
+    padding: 7px 7px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    box-shadow: none;
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+}
+
+.copy-btn svg {
+    display: block;
+    pointer-events: none;
+}
+
+.copy-btn:hover {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.copy-btn:active {
+    background: #1746a2;
+    color: #fff;
+    border-color: #1746a2;
+}
+
+.copy-btn.copied {
+    background: #059669;
+    color: #fff;
+    border-color: #059669;
+}
+
+.summary-item {
+    font-size: 1em;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 10px;
+    padding: 7px 0 7px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.2s;
+}
+
+.summary-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.summary-item:hover {
+    color: #2563eb;
+}
+
+/* Анимация для результатов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sum-display, .summary-item {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1100px) {
+    .two-column-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .right-column {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        margin: 4px;
+    }
+    .summary-text {
+        padding: 12px 6px 10px 6px;
+    }
+    .summary-header {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    .copy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .cell-input {
+        height: 30px;
+        font-size: 0.95em;
+        padding: 4px;
+    }
+    #excelTable th {
+        padding: 7px 2px;
+        font-size: 0.9em;
+    }
+    .calculate-btn, .clear-btn {
+        padding: 8px 12px;
+        font-size: 0.95em;
+        margin: 4px 0;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+}
+
+.copy-toast {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background: #22c55e;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(34,197,94,0.12);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    animation: fadeInOut 2s forwards;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+.check-block {
+    margin-top: 18px;
+    background: #f9fafb;
+    border-radius: 5px;
+    border: 1px solid #ececec;
+    padding: 10px 7px 7px 7px;
+}
+.check-block h4 {
+    margin: 0 0 7px 0;
+    font-size: 0.98em;
+    color: #444;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+.check-cols {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.check-col {
+    flex: 1 1 0;
+    min-width: 90px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    padding: 5px 7px 4px 7px;
+    font-size: 0.89em;
+    color: #333;
+    margin-bottom: 4px;
+    box-shadow: none;
+}
+.check-col strong {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.97em;
+}
+.check-col .check-list {
+    color: #6b7280;
+    font-size: 0.89em;
+    margin: 3px 0 0 0;
+    word-break: break-all;
+}
+.check-col .check-sum {
+    color: #059669;
+    font-weight: 600;
+    margin-top: 3px;
+    display: block;
+    font-size: 0.95em;
+}
+@media (max-width: 900px) {
+    .check-cols {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .check-col {
+        min-width: 0;
+    }
+} 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор сумм по столбцам</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор сумм по столбцам</h1>
+        <p class="description">Вставьте значения в ячейки таблицы или скопируйте столбцы из Excel. Нажмите "Посчитать" для подсчета сумм.</p>
+        
+        <div class="two-column-layout">
+            <!-- Левая колонка - Калькулятор -->
+            <div class="left-column">
+                <div class="table-wrapper">
+                    <table id="excelTable">
+                        <thead>
+                            <tr>
+                                <th>Сортировка МП</th>
+                                <th>Сборка</th>
+                                <th>Предсортировка</th>
+                                <th>Сортировка СЦ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- 8 строк будут созданы динамически -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><div class="sum-display" id="sum1">Сумма: 0</div></td>
+                                <td><div class="sum-display" id="sum2">Сумма: 0</div></td>
+                                <td><div class="sum-display" id="sum3">Сумма: 0</div></td>
+                                <td><div class="sum-display" id="sum4">Сумма: 0</div></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="button-container">
+                    <button id="calculateBtn" class="calculate-btn">Посчитать</button>
+                    <button id="clearBtn" class="clear-btn">Очистить все</button>
+                </div>
+                <div class="check-block" id="checkBlock">
+                    <h4>Проверка подсчетов</h4>
+                    <div class="check-cols">
+                        <div class="check-col" id="check1"></div>
+                        <div class="check-col" id="check2"></div>
+                        <div class="check-col" id="check3"></div>
+                        <div class="check-col" id="check4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Правая колонка - Результаты -->
+            <div class="right-column">
+                <div class="summary-text">
+                    <div class="summary-header">
+                        <h3>Результаты подсчета:</h3>
+                        <button id="copyBtn" class="copy-btn" title="Скопировать результаты" aria-label="Скопировать результаты">
+                            <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="7" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="7.5" y="3" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="summary-item" id="summary1">Сортировка МП - 0</div>
+                    <div class="summary-item" id="summary2">Сборка - 0</div>
+                    <div class="summary-item" id="summary3">Предсортировка - 0</div>
+                    <div class="summary-item" id="summary4">Сортировка СЦ - 0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
