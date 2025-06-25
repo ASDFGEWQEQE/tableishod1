@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Обновляем текстовые строки с суммами
-        const columnNames = ['Сортировка МП', 'Сборка', 'Предсортировка', 'Сортировка СЦ'];
+        const columnNames = ['Сортировка МП', 'Сборка', 'Сортировка', 'Сортировка СЦ'];
         for (let i = 0; i < 4; i++) {
             summaryItems[i].textContent = `${columnNames[i]} - ${formatNumber(sums[i])}`;
         }
